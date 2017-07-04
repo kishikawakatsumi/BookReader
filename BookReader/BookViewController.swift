@@ -149,6 +149,9 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
     }
 
     private func showTableOfContents() {
+        view.exchangeSubview(at: 0, withSubviewAt: 1)
+        view.exchangeSubview(at: 0, withSubviewAt: 2)
+
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Chevron"), style: .plain, target: self, action: #selector(back(_:)))
         let tableOfContentsBarButton = UIBarButtonItem(title: NSLocalizedString("Resume", comment: ""), style: .plain, target: self, action: #selector(resume(_:)))
         navigationItem.leftBarButtonItems = [backButton, tableOfContentsBarButton]
