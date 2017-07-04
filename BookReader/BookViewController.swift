@@ -23,9 +23,9 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var pdfThumbnailView: PDFThumbnailView!
 
     let tableOfContentsToggleSegmentedControl = UISegmentedControl(items: [#imageLiteral(resourceName: "Grid"), #imageLiteral(resourceName: "List"), #imageLiteral(resourceName: "Bookmark-N")])
-    @IBOutlet weak var thumbnailGridView: UIView!
-    @IBOutlet weak var outlineView: UIView!
-    @IBOutlet weak var bookmarkView: UIView!
+    @IBOutlet weak var thumbnailGridViewConainer: UIView!
+    @IBOutlet weak var outlineViewConainer: UIView!
+    @IBOutlet weak var bookmarkViewConainer: UIView!
 
     var bookmarkButton: UIBarButtonItem!
 
@@ -140,8 +140,8 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
         thumbnailViewContainer.alpha = 1
 
         pdfView.isHidden = false
-        thumbnailGridView.isHidden = true
-        outlineView.isHidden = true
+        thumbnailGridViewConainer.isHidden = true
+        outlineViewConainer.isHidden = true
 
         barHideOnTapGestureRecognizer.isEnabled = true
 
@@ -230,17 +230,17 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
     @objc func toggleTableOfContentsView(_ sender: UISegmentedControl) {
         pdfView.isHidden = true
         if tableOfContentsToggleSegmentedControl.selectedSegmentIndex == 0 {
-            thumbnailGridView.isHidden = false
-            outlineView.isHidden = true
-            bookmarkView.isHidden = true
+            thumbnailGridViewConainer.isHidden = false
+            outlineViewConainer.isHidden = true
+            bookmarkViewConainer.isHidden = true
         } else if tableOfContentsToggleSegmentedControl.selectedSegmentIndex == 1 {
-            thumbnailGridView.isHidden = true
-            outlineView.isHidden = false
-            bookmarkView.isHidden = true
+            thumbnailGridViewConainer.isHidden = true
+            outlineViewConainer.isHidden = false
+            bookmarkViewConainer.isHidden = true
         } else {
-            thumbnailGridView.isHidden = true
-            outlineView.isHidden = true
-            bookmarkView.isHidden = false
+            thumbnailGridViewConainer.isHidden = true
+            outlineViewConainer.isHidden = true
+            bookmarkViewConainer.isHidden = false
         }
     }
 

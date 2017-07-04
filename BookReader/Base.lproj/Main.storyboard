@@ -179,11 +179,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bookmarkView" destination="ltT-FO-jdU" id="7is-Ou-9PK"/>
-                        <outlet property="outlineView" destination="ZP2-Cv-L3H" id="hI8-On-Fv4"/>
+                        <outlet property="bookmarkViewConainer" destination="ltT-FO-jdU" id="kh7-g3-o2C"/>
+                        <outlet property="outlineViewConainer" destination="ZP2-Cv-L3H" id="LZA-0q-ZpQ"/>
                         <outlet property="pdfThumbnailView" destination="L48-No-GU5" id="PDB-Nb-So4"/>
                         <outlet property="pdfView" destination="dRa-hu-L5d" id="yfh-f4-boL"/>
-                        <outlet property="thumbnailGridView" destination="EfD-K5-tnG" id="BZJ-4b-vkp"/>
+                        <outlet property="thumbnailGridViewConainer" destination="EfD-K5-tnG" id="OB1-bV-tb4"/>
                         <outlet property="thumbnailViewContainer" destination="auS-e9-LIs" id="j0o-im-fsF"/>
                         <outlet property="thumbnailViewContainerHeightConstraint" destination="ol6-r7-Vc4" id="GMj-LG-ADg"/>
                         <outlet property="toolbar" destination="2h8-J7-UFS" id="mLy-9j-RFY"/>
@@ -197,7 +197,6 @@
         <!--Search View Controller-->
         <scene sceneID="leh-pd-lGq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xa8-j3-laD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="peJ-xt-vda" customClass="SearchViewController" customModule="BookReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="kS8-I9-TTl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -220,6 +219,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="9f4-gr-dNi"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xa8-j3-laD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2886" y="138"/>
         </scene>
@@ -423,7 +423,6 @@
         <!--Navigation Controller-->
         <scene sceneID="MSr-1x-dbv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lgH-Qw-N7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="SearchViewController" automaticallyAdjustsScrollViewInsets="NO" id="y5Z-QX-gza" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HwD-cp-YRn">
@@ -435,6 +434,7 @@
                         <segue destination="peJ-xt-vda" kind="relationship" relationship="rootViewController" id="EwX-rv-d9d"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lgH-Qw-N7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2097" y="138"/>
         </scene>
