@@ -14,12 +14,12 @@ class BookshelfCell: UITableViewCell {
             thumbnailImageView.image = thumbnail
         }
     }
-    var title: String? = nil {
+    var title: String = "No title" {
         didSet {
             titleLabel.text = title
         }
     }
-    var author: String? = nil {
+    var author: String = "" {
         didSet {
             authorLabel.text = author
         }
@@ -35,6 +35,9 @@ class BookshelfCell: UITableViewCell {
         titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         authorLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
         authorLabel.textColor = .gray
+
+        titleLabel.text = title
+        authorLabel.text = author
     }
 
     override func prepareForReuse() {
