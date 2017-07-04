@@ -18,6 +18,20 @@ class BookmarkViewController: UICollectionViewController, UICollectionViewDelega
     let thumbnailCache = NSCache<NSNumber, UIImage>()
     private let downloadQueue = DispatchQueue(label: "com.kishikawakatsumi.pdfviewer.thumbnail")
 
+    var cellSize: CGSize {
+        if let collectionView = collectionView {
+            var width = collectionView.frame.width
+            var height = collectionView.frame.height
+            if width > height {
+                swap(&width, &height)
+            }
+            width = (width - 20 * 4) / 3
+            height = width * 1.5
+            return CGSize(width: width, height: height)
+        }
+        return CGSize(width: 100, height: 150)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,8 +64,9 @@ class BookmarkViewController: UICollectionViewController, UICollectionViewDelega
             if let thumbnail = thumbnailCache.object(forKey: key) {
                 cell.image = thumbnail
             } else {
+                let size = cellSize
                 downloadQueue.async {
-                    let thumbnail = page.thumbnail(of: CGSize(width: 100, height: 150) , for: .cropBox)
+                    let thumbnail = page.thumbnail(of: size, for: .cropBox)
                     self.thumbnailCache.setObject(thumbnail, forKey: key)
                     if cell.pageNumber == pageNumber {
                         DispatchQueue.main.async {
@@ -73,8 +88,7 @@ class BookmarkViewController: UICollectionViewController, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.width - 20 * 4) / 3
-        return CGSize(width: width, height: width * 1.5)
+        return cellSize
     }
 
     private func refreshData() {

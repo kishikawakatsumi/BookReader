@@ -57,7 +57,7 @@ class BookshelfViewController: UITableViewController {
                         cell.thumbnail = thumbnail
                     } else {
                         downloadQueue.async {
-                            let thumbnail = page.thumbnail(of: CGSize(width: 40, height: 60) , for: .cropBox)
+                            let thumbnail = page.thumbnail(of: CGSize(width: 40, height: 60), for: .cropBox)
                             self.thumbnailCache.setObject(thumbnail, forKey: key)
                             if cell.url == key {
                                 DispatchQueue.main.async {
