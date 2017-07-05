@@ -124,6 +124,42 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxG-pn-ceU">
+                                <rect key="frame" x="158" y="79" width="59.5" height="29"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8q-AR-s5a">
+                                        <rect key="frame" x="8" y="4" width="43.5" height="21"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="O8q-AR-s5a" secondAttribute="trailing" constant="8" id="MoF-Uj-xEg"/>
+                                    <constraint firstAttribute="bottom" secondItem="O8q-AR-s5a" secondAttribute="bottom" constant="4" id="kBo-4d-j2M"/>
+                                    <constraint firstItem="O8q-AR-s5a" firstAttribute="top" secondItem="uxG-pn-ceU" secondAttribute="top" constant="4" id="t4a-gd-i89"/>
+                                    <constraint firstItem="O8q-AR-s5a" firstAttribute="leading" secondItem="uxG-pn-ceU" secondAttribute="leading" constant="8" id="zwh-0I-gJR"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLu-hy-Yr2">
+                                <rect key="frame" x="157.5" y="579" width="60" height="29"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3u-OX-nvq">
+                                        <rect key="frame" x="8" y="4" width="44" height="21"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70173552852348997" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="v3u-OX-nvq" secondAttribute="trailing" constant="8" id="OK3-Kj-Kal"/>
+                                    <constraint firstItem="v3u-OX-nvq" firstAttribute="leading" secondItem="iLu-hy-Yr2" secondAttribute="leading" constant="8" id="Uvd-0q-816"/>
+                                    <constraint firstAttribute="bottom" secondItem="v3u-OX-nvq" secondAttribute="bottom" constant="4" id="Vrs-lB-fXp"/>
+                                    <constraint firstItem="v3u-OX-nvq" firstAttribute="top" secondItem="iLu-hy-Yr2" secondAttribute="top" constant="4" id="uEx-ss-aQz"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gH8-GA-Txo">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <subviews>
@@ -164,9 +200,15 @@
                             <constraint firstItem="EfD-K5-tnG" firstAttribute="top" secondItem="wu0-JT-Hpp" secondAttribute="top" id="RHF-qb-KTa"/>
                             <constraint firstItem="gH8-GA-Txo" firstAttribute="trailing" secondItem="fe3-hJ-lxG" secondAttribute="trailing" id="SWf-gb-j27"/>
                             <constraint firstItem="gH8-GA-Txo" firstAttribute="leading" secondItem="fe3-hJ-lxG" secondAttribute="leading" id="UNi-6g-xS9"/>
+                            <constraint firstItem="uxG-pn-ceU" firstAttribute="centerX" secondItem="wu0-JT-Hpp" secondAttribute="centerX" id="ZLf-bW-TVT"/>
+                            <constraint firstItem="fe3-hJ-lxG" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uxG-pn-ceU" secondAttribute="trailing" constant="15" id="ZNN-oe-ztY"/>
+                            <constraint firstItem="uxG-pn-ceU" firstAttribute="top" secondItem="wu0-JT-Hpp" secondAttribute="top" constant="79" id="jzJ-Gk-SqD"/>
+                            <constraint firstItem="uxG-pn-ceU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fe3-hJ-lxG" secondAttribute="leading" constant="15" id="lhp-Sc-fYz"/>
+                            <constraint firstItem="iLu-hy-Yr2" firstAttribute="centerX" secondItem="wu0-JT-Hpp" secondAttribute="centerX" id="m43-cd-uYH"/>
                             <constraint firstItem="ltT-FO-jdU" firstAttribute="bottom" secondItem="fe3-hJ-lxG" secondAttribute="bottom" id="mSj-wJ-Pfh"/>
                             <constraint firstItem="dRa-hu-L5d" firstAttribute="leading" secondItem="fe3-hJ-lxG" secondAttribute="leading" id="mzM-au-jCt"/>
                             <constraint firstItem="ZP2-Cv-L3H" firstAttribute="top" secondItem="wu0-JT-Hpp" secondAttribute="top" id="oWd-sg-WSn"/>
+                            <constraint firstItem="gH8-GA-Txo" firstAttribute="top" secondItem="iLu-hy-Yr2" secondAttribute="bottom" constant="15" id="pcV-MG-YMj"/>
                             <constraint firstItem="EfD-K5-tnG" firstAttribute="leading" secondItem="fe3-hJ-lxG" secondAttribute="leading" id="t9O-Ci-pTu"/>
                             <constraint firstItem="ltT-FO-jdU" firstAttribute="top" secondItem="wu0-JT-Hpp" secondAttribute="top" id="uqf-Xg-9sH"/>
                             <constraint firstItem="dRa-hu-L5d" firstAttribute="bottom" secondItem="fe3-hJ-lxG" secondAttribute="bottom" id="v0w-Y1-hGn"/>
@@ -177,10 +219,14 @@
                     <connections>
                         <outlet property="bookmarkViewConainer" destination="ltT-FO-jdU" id="kh7-g3-o2C"/>
                         <outlet property="outlineViewConainer" destination="ZP2-Cv-L3H" id="LZA-0q-ZpQ"/>
+                        <outlet property="pageNumberLabel" destination="v3u-OX-nvq" id="sMZ-5T-ad9"/>
+                        <outlet property="pageNumberLabelContainer" destination="iLu-hy-Yr2" id="7sv-Qe-SuC"/>
                         <outlet property="pdfThumbnailView" destination="auS-e9-LIs" id="eHX-5K-xs6"/>
                         <outlet property="pdfThumbnailViewContainer" destination="gH8-GA-Txo" id="akK-mz-ynX"/>
                         <outlet property="pdfView" destination="dRa-hu-L5d" id="yfh-f4-boL"/>
                         <outlet property="thumbnailGridViewConainer" destination="EfD-K5-tnG" id="OB1-bV-tb4"/>
+                        <outlet property="titleLabel" destination="O8q-AR-s5a" id="Izi-bv-cdf"/>
+                        <outlet property="titleLabelContainer" destination="uxG-pn-ceU" id="C4Q-9s-HHP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOT-MR-xt2" userLabel="First Responder" sceneMemberID="firstResponder"/>

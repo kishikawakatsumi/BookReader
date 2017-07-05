@@ -18,6 +18,11 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var pdfThumbnailViewContainer: UIView!
     @IBOutlet weak var pdfThumbnailView: PDFThumbnailView!
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabelContainer: UIView!
+    @IBOutlet weak var pageNumberLabel: UILabel!
+    @IBOutlet weak var pageNumberLabelContainer: UIView!
+
     let tableOfContentsToggleSegmentedControl = UISegmentedControl(items: [#imageLiteral(resourceName: "Grid"), #imageLiteral(resourceName: "List"), #imageLiteral(resourceName: "Bookmark-N")])
     @IBOutlet weak var thumbnailGridViewConainer: UIView!
     @IBOutlet weak var outlineViewConainer: UIView!
@@ -52,6 +57,10 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
 
         pdfThumbnailView.layoutMode = .horizontal
         pdfThumbnailView.pdfView = pdfView
+
+        titleLabel.text = pdfDocument?.documentAttributes?["Title"] as? String
+        titleLabelContainer.layer.cornerRadius = 4
+        pageNumberLabelContainer.layer.cornerRadius = 4
 
         resume()
     }
@@ -133,6 +142,7 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
         barHideOnTapGestureRecognizer.isEnabled = true
 
         updateBookmarkStatus()
+        updatePageNumberLabel()
     }
 
     private func showTableOfContents() {
@@ -239,6 +249,7 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
             hideBars()
         }
         updateBookmarkStatus()
+        updatePageNumberLabel()
     }
 
     @objc func gestureRecognizedToggleVisibility(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -260,11 +271,21 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
         }
     }
 
+    private func updatePageNumberLabel() {
+        if let currentPage = pdfView.currentPage, let index = pdfDocument?.index(for: currentPage), let pageCount = pdfDocument?.pageCount {
+            pageNumberLabel.text = String(format: "%d/%d", index + 1, pageCount)
+        } else {
+            pageNumberLabel.text = nil
+        }
+    }
+
     private func showBars() {
         if let navigationController = navigationController {
             UIView.animate(withDuration: CATransaction.animationDuration()) {
                 navigationController.navigationBar.alpha = 1
                 self.pdfThumbnailViewContainer.alpha = 1
+                self.titleLabelContainer.alpha = 1
+                self.pageNumberLabelContainer.alpha = 1
             }
         }
     }
@@ -274,6 +295,8 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
             UIView.animate(withDuration: CATransaction.animationDuration()) {
                 navigationController.navigationBar.alpha = 0
                 self.pdfThumbnailViewContainer.alpha = 0
+                self.titleLabelContainer.alpha = 0
+                self.pageNumberLabelContainer.alpha = 0
             }
         }
     }
