@@ -15,11 +15,7 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
     var pdfDocument: PDFDocument?
 
     @IBOutlet weak var pdfView: PDFView!
-
-    @IBOutlet weak var toolbar: UIToolbar!
-    @IBOutlet weak var thumbnailViewContainer: UIView!
-    @IBOutlet weak var thumbnailViewContainerHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var toolbarHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var pdfThumbnailViewContainer: UIView!
     @IBOutlet weak var pdfThumbnailView: PDFThumbnailView!
 
     let tableOfContentsToggleSegmentedControl = UISegmentedControl(items: [#imageLiteral(resourceName: "Grid"), #imageLiteral(resourceName: "List"), #imageLiteral(resourceName: "Bookmark-N")])
@@ -30,6 +26,7 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
     var bookmarkButton: UIBarButtonItem!
 
     var searchNavigationController: UINavigationController?
+
     let barHideOnTapGestureRecognizer = UITapGestureRecognizer()
     let pdfViewGestureRecognizer = PDFViewGestureRecognizer()
     
@@ -57,15 +54,6 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
         pdfThumbnailView.pdfView = pdfView
 
         resume()
-    }
-
-    override func viewDidLayoutSubviews() {
-        var height = toolbar.frame.height
-        if let navigationController = navigationController {
-            height = navigationController.toolbar.frame.height
-        }
-        toolbarHeightConstraint.constant = height
-        thumbnailViewContainerHeightConstraint.constant = height
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -136,8 +124,7 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
         bookmarkButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Bookmark-N"), style: .plain, target: self, action: #selector(addOrRemoveBookmark(_:)))
         navigationItem.rightBarButtonItems = [bookmarkButton, searchButton, brightnessButton]
 
-        toolbar.alpha = 1
-        thumbnailViewContainer.alpha = 1
+        pdfThumbnailViewContainer.alpha = 1
 
         pdfView.isHidden = false
         thumbnailGridViewConainer.isHidden = true
@@ -153,12 +140,12 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
         view.exchangeSubview(at: 0, withSubviewAt: 2)
 
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Chevron"), style: .plain, target: self, action: #selector(back(_:)))
-        let tableOfContentsBarButton = UIBarButtonItem(title: NSLocalizedString("Resume", comment: ""), style: .plain, target: self, action: #selector(resume(_:)))
-        navigationItem.leftBarButtonItems = [backButton, tableOfContentsBarButton]
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: tableOfContentsToggleSegmentedControl)]
+        let tableOfContentsToggleBarButton = UIBarButtonItem(customView: tableOfContentsToggleSegmentedControl)
+        let resumeBarButton = UIBarButtonItem(title: NSLocalizedString("Resume", comment: ""), style: .plain, target: self, action: #selector(resume(_:)))
+        navigationItem.leftBarButtonItems = [backButton, tableOfContentsToggleBarButton]
+        navigationItem.rightBarButtonItems = [resumeBarButton]
 
-        toolbar.alpha = 0
-        thumbnailViewContainer.alpha = 0
+        pdfThumbnailViewContainer.alpha = 0
 
         toggleTableOfContentsView(tableOfContentsToggleSegmentedControl)
 
@@ -277,8 +264,7 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
         if let navigationController = navigationController {
             UIView.animate(withDuration: CATransaction.animationDuration()) {
                 navigationController.navigationBar.alpha = 1
-                self.toolbar.alpha = 1
-                self.thumbnailViewContainer.alpha = 1
+                self.pdfThumbnailViewContainer.alpha = 1
             }
         }
     }
@@ -287,8 +273,7 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
         if let navigationController = navigationController {
             UIView.animate(withDuration: CATransaction.animationDuration()) {
                 navigationController.navigationBar.alpha = 0
-                self.toolbar.alpha = 0
-                self.thumbnailViewContainer.alpha = 0
+                self.pdfThumbnailViewContainer.alpha = 0
             }
         }
     }
