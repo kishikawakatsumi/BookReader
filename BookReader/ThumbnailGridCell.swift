@@ -33,6 +33,7 @@ internal final class ThumbnailGridCell: UICollectionViewCell {
     }
 
     override func prepareForReuse() {
+        super.prepareForReuse()
         imageView.image = nil
     }
 }

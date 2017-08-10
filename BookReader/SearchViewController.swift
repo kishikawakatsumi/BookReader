@@ -13,8 +13,8 @@ internal final class SearchViewController: UITableViewController, UISearchBarDel
     var pdfDocument: PDFDocument?
     weak var delegate: SearchViewControllerDelegate?
 
-    var searchBar = UISearchBar()
-    var searchResults = [PDFSelection]()
+    private var searchBar = UISearchBar()
+    private var searchResults = [PDFSelection]()
 
     deinit {
         pdfDocument?.cancelFindString()

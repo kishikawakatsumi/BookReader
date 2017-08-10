@@ -23,17 +23,17 @@ internal final class BookViewController: UIViewController, UIPopoverPresentation
     @IBOutlet private weak var pageNumberLabel: UILabel!
     @IBOutlet private weak var pageNumberLabelContainer: UIView!
 
-    let tableOfContentsToggleSegmentedControl = UISegmentedControl(items: [#imageLiteral(resourceName: "Grid"), #imageLiteral(resourceName: "List"), #imageLiteral(resourceName: "Bookmark-N")])
+    private let tableOfContentsToggleSegmentedControl = UISegmentedControl(items: [#imageLiteral(resourceName: "Grid"), #imageLiteral(resourceName: "List"), #imageLiteral(resourceName: "Bookmark-N")])
     @IBOutlet private weak var thumbnailGridViewConainer: UIView!
     @IBOutlet private weak var outlineViewConainer: UIView!
     @IBOutlet private weak var bookmarkViewConainer: UIView!
 
-    var bookmarkButton: UIBarButtonItem!
+    private var bookmarkButton: UIBarButtonItem!
 
-    var searchNavigationController: UINavigationController?
+    private var searchNavigationController: UINavigationController?
 
-    let barHideOnTapGestureRecognizer = UITapGestureRecognizer()
-    let pdfViewGestureRecognizer = PDFViewGestureRecognizer()
+    private let barHideOnTapGestureRecognizer = UITapGestureRecognizer()
+    private let pdfViewGestureRecognizer = PDFViewGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()

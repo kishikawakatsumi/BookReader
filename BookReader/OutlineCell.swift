@@ -14,6 +14,7 @@ internal final class OutlineCell: UITableViewCell {
             titleLabel.text = label
         }
     }
+    
     var pageLabel: String? = nil {
         didSet {
             pageNumberLabel.text = pageLabel

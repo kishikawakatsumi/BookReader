@@ -15,7 +15,7 @@ internal final class BookmarkViewController: UICollectionViewController, UIColle
 
     weak var delegate: BookmarkViewControllerDelegate?
 
-    let thumbnailCache = NSCache<NSNumber, UIImage>()
+    private let thumbnailCache = NSCache<NSNumber, UIImage>()
     private let downloadQueue = DispatchQueue(label: "com.kishikawakatsumi.pdfviewer.thumbnail")
 
     var cellSize: CGSize {

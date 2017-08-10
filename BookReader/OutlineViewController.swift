@@ -11,7 +11,7 @@ import PDFKit
 
 internal final class OutlineViewController: UITableViewController {
     var pdfDocument: PDFDocument?
-    var toc = [PDFOutline]()
+    private var toc = [PDFOutline]()
     weak var delegate: OutlineViewControllerDelegate?
 
     override func viewDidLoad() {
