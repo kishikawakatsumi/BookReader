@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchResultsCell: UITableViewCell {
+internal final class SearchResultsCell: UITableViewCell {
     var section: String? = nil {
         didSet {
             sectionLabel.text = section

@@ -8,8 +8,8 @@
 
 import UIKit
 
-class AppearanceViewController: UIViewController {
-    @IBOutlet weak var brightnessSlider: UISlider!
+internal final class AppearanceViewController: UIViewController {
+    @IBOutlet private weak var brightnessSlider: UISlider!
 
     override func viewDidLoad() {
         super.viewDidLoad()

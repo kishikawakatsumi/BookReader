@@ -9,10 +9,10 @@
 import UIKit
 import PDFKit
 
-class BookshelfViewController: UITableViewController {
-    var documents = [PDFDocument]()
+internal final class BookshelfViewController: UITableViewController {
+    private var documents = [PDFDocument]()
 
-    let thumbnailCache = NSCache<NSURL, UIImage>()
+    private let thumbnailCache = NSCache<NSURL, UIImage>()
     private let downloadQueue = DispatchQueue(label: "com.kishikawakatsumi.pdfviewer.thumbnail")
 
     override func viewDidLoad() {

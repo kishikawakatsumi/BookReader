@@ -9,13 +9,13 @@
 import UIKit
 import PDFKit
 
-class BookmarkViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+internal final class BookmarkViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var pdfDocument: PDFDocument?
     var bookmarks = [Int]()
 
     weak var delegate: BookmarkViewControllerDelegate?
 
-    let thumbnailCache = NSCache<NSNumber, UIImage>()
+    private let thumbnailCache = NSCache<NSNumber, UIImage>()
     private let downloadQueue = DispatchQueue(label: "com.kishikawakatsumi.pdfviewer.thumbnail")
 
     var cellSize: CGSize {

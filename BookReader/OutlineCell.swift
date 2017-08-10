@@ -8,12 +8,13 @@
 
 import UIKit
 
-class OutlineCell: UITableViewCell {
+internal final class OutlineCell: UITableViewCell {
     var label: String? = nil {
         didSet {
             titleLabel.text = label
         }
     }
+    
     var pageLabel: String? = nil {
         didSet {
             pageNumberLabel.text = pageLabel

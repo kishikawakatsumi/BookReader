@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookshelfCell: UITableViewCell {
+internal final class BookshelfCell: UITableViewCell {
     var thumbnail: UIImage? = nil {
         didSet {
             thumbnailImageView.image = thumbnail

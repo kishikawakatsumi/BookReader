@@ -9,14 +9,14 @@
 import UIKit
 import PDFKit
 
-class ThumbnailGridViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+internal final class ThumbnailGridViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var pdfDocument: PDFDocument?
     weak var delegate: ThumbnailGridViewControllerDelegate?
 
     private let downloadQueue = DispatchQueue(label: "com.kishikawakatsumi.pdfviewer.thumbnail")
-    let thumbnailCache = NSCache<NSNumber, UIImage>()
+    private let thumbnailCache = NSCache<NSNumber, UIImage>()
 
-    var cellSize: CGSize {
+    private var cellSize: CGSize {
         if let collectionView = collectionView {
             var width = collectionView.frame.width
             var height = collectionView.frame.height
