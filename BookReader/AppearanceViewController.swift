@@ -9,7 +9,7 @@
 import UIKit
 
 internal final class AppearanceViewController: UIViewController {
-    @IBOutlet weak var brightnessSlider: UISlider!
+    @IBOutlet private weak var brightnessSlider: UISlider!
 
     override func viewDidLoad() {
         super.viewDidLoad()

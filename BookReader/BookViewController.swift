@@ -14,19 +14,19 @@ import UIKit.UIGestureRecognizerSubclass
 internal final class BookViewController: UIViewController, UIPopoverPresentationControllerDelegate, PDFViewDelegate, ActionMenuViewControllerDelegate, SearchViewControllerDelegate, ThumbnailGridViewControllerDelegate, OutlineViewControllerDelegate, BookmarkViewControllerDelegate {
     var pdfDocument: PDFDocument?
 
-    @IBOutlet weak var pdfView: PDFView!
-    @IBOutlet weak var pdfThumbnailViewContainer: UIView!
-    @IBOutlet weak var pdfThumbnailView: PDFThumbnailView!
+    @IBOutlet private weak var pdfView: PDFView!
+    @IBOutlet private weak var pdfThumbnailViewContainer: UIView!
+    @IBOutlet private weak var pdfThumbnailView: PDFThumbnailView!
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var titleLabelContainer: UIView!
-    @IBOutlet weak var pageNumberLabel: UILabel!
-    @IBOutlet weak var pageNumberLabelContainer: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleLabelContainer: UIView!
+    @IBOutlet private weak var pageNumberLabel: UILabel!
+    @IBOutlet private weak var pageNumberLabelContainer: UIView!
 
     let tableOfContentsToggleSegmentedControl = UISegmentedControl(items: [#imageLiteral(resourceName: "Grid"), #imageLiteral(resourceName: "List"), #imageLiteral(resourceName: "Bookmark-N")])
-    @IBOutlet weak var thumbnailGridViewConainer: UIView!
-    @IBOutlet weak var outlineViewConainer: UIView!
-    @IBOutlet weak var bookmarkViewConainer: UIView!
+    @IBOutlet private weak var thumbnailGridViewConainer: UIView!
+    @IBOutlet private weak var outlineViewConainer: UIView!
+    @IBOutlet private weak var bookmarkViewConainer: UIView!
 
     var bookmarkButton: UIBarButtonItem!
 
