@@ -11,7 +11,7 @@ import PDFKit
 import MessageUI
 import UIKit.UIGestureRecognizerSubclass
 
-class BookViewController: UIViewController, UIPopoverPresentationControllerDelegate, PDFViewDelegate, ActionMenuViewControllerDelegate, SearchViewControllerDelegate, ThumbnailGridViewControllerDelegate, OutlineViewControllerDelegate, BookmarkViewControllerDelegate {
+internal final class BookViewController: UIViewController, UIPopoverPresentationControllerDelegate, PDFViewDelegate, ActionMenuViewControllerDelegate, SearchViewControllerDelegate, ThumbnailGridViewControllerDelegate, OutlineViewControllerDelegate, BookmarkViewControllerDelegate {
     var pdfDocument: PDFDocument?
 
     @IBOutlet weak var pdfView: PDFView!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThumbnailGridCell: UICollectionViewCell {
+internal final class ThumbnailGridCell: UICollectionViewCell {
     override var isHighlighted: Bool {
         didSet {
             imageView.alpha = isHighlighted ? 0.8 : 1

@@ -9,7 +9,7 @@
 import UIKit
 import PDFKit
 
-class ThumbnailGridViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+internal final class ThumbnailGridViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var pdfDocument: PDFDocument?
     weak var delegate: ThumbnailGridViewControllerDelegate?
 

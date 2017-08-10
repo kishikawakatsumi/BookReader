@@ -9,7 +9,7 @@
 import UIKit
 import PDFKit
 
-class BookshelfViewController: UITableViewController {
+internal final class BookshelfViewController: UITableViewController {
     var documents = [PDFDocument]()
 
     let thumbnailCache = NSCache<NSURL, UIImage>()

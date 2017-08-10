@@ -9,7 +9,7 @@
 import UIKit
 import PDFKit
 
-class OutlineViewController: UITableViewController {
+internal final class OutlineViewController: UITableViewController {
     var pdfDocument: PDFDocument?
     var toc = [PDFOutline]()
     weak var delegate: OutlineViewControllerDelegate?

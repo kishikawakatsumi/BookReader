@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActionMenuViewController: UITableViewController {
+internal final class ActionMenuViewController: UITableViewController {
     weak var delegate: ActionMenuViewControllerDelegate?
     
     override func viewDidLoad() {

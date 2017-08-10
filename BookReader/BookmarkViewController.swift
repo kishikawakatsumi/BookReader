@@ -9,7 +9,7 @@
 import UIKit
 import PDFKit
 
-class BookmarkViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+internal final class BookmarkViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var pdfDocument: PDFDocument?
     var bookmarks = [Int]()
 

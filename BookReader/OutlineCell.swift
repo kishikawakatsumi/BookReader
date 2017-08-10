@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OutlineCell: UITableViewCell {
+internal final class OutlineCell: UITableViewCell {
     var label: String? = nil {
         didSet {
             titleLabel.text = label
