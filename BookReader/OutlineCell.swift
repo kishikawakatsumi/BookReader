@@ -43,6 +43,6 @@ class OutlineCell: UITableViewCell {
             titleLabel.font = UIFont.preferredFont(forTextStyle: .body)
         }
 
-        separatorInset = UIEdgeInsets(top: 0, left: indentationConstraint.constant, bottom: 0, right: 20)
+        separatorInset = UIEdgeInsets(top: 0, left: safeAreaInsets.right + indentationConstraint.constant, bottom: 0, right: 0)
     }
 }
