@@ -17,6 +17,7 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var pdfView: PDFView!
     @IBOutlet weak var pdfThumbnailViewContainer: UIView!
     @IBOutlet weak var pdfThumbnailView: PDFThumbnailView!
+    @IBOutlet private weak var pdfThumbnailViewHeightConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleLabelContainer: UIView!
@@ -63,6 +64,20 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
         pageNumberLabelContainer.layer.cornerRadius = 4
 
         resume()
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        adjustThumbnailViewHeight()
+    }
+
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: { (context) in
+            self.adjustThumbnailViewHeight()
+        }, completion: nil)
+    }
+
+    private func adjustThumbnailViewHeight() {
+        self.pdfThumbnailViewHeightConstraint.constant = 44 + self.view.safeAreaInsets.bottom
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -136,6 +151,8 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
         pdfThumbnailViewContainer.alpha = 1
 
         pdfView.isHidden = false
+        titleLabelContainer.alpha = 1
+        pageNumberLabelContainer.alpha = 1
         thumbnailGridViewConainer.isHidden = true
         outlineViewConainer.isHidden = true
 
@@ -229,6 +246,9 @@ class BookViewController: UIViewController, UIPopoverPresentationControllerDeleg
 
     @objc func toggleTableOfContentsView(_ sender: UISegmentedControl) {
         pdfView.isHidden = true
+        titleLabelContainer.alpha = 0
+        pageNumberLabelContainer.alpha = 0
+
         if tableOfContentsToggleSegmentedControl.selectedSegmentIndex == 0 {
             thumbnailGridViewConainer.isHidden = false
             outlineViewConainer.isHidden = true
